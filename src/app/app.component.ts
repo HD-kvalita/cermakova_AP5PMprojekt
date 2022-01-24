@@ -1,18 +1,30 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { Page01Page } from './folder/page01/page01.page';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
+  rootPage:any =Page01Page;
+
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Collections', url: '/page01', icon: 'map' },
+    { title: 'Search', url: '/page02', icon: 'search' },
+    { title: 'Favorites', url: '/page03', icon: 'star' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  public labels = [];
+  
+  constructor(
+    private platform: Platform
+  ) {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+    });
+  }
 }

@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Collections</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngFor="let Object of objectsTen " value="{{Object}} ">
+        <ion-item>
+            <!-- Artist, section, division .. -->
+            <ion-label>
+                <ion-card-header style="background-size: cover;" style="background:tan;">
+                    <ion-card-title color="dark">Categories</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <p>_____</p>
+                    <h1>❞</h1>
+                    <p>{{Object.value.department}}</p>
+                    <p>{{Object.value.division}}</p>
+                    <p>Artist</p>
+                </ion-card-content>
+            </ion-label>
+        </ion-item>
+        <!-- Image, title, desription .. -->
+        <img *ngIf="Object.value.primaryimageurl !=n ull " src="{{Object.value.primaryimageurl}} " alt="ion ">
+        <ion-card-header>
+            <ion-card-title>{{Object.value.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>{{Object.value.century}}, {{Object.value.culture}}</p>
+            {{Object.value.description}}
+
+            <ion-button style="margin-left: 90%;" color="danger" outline item-end (click)="addFavorite(Object)">
+                <ion-icon name="heart-outline"></ion-icon>
+            </ion-button>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
